@@ -1,14 +1,26 @@
 
 pipeline {
   agent any
+
   stages {
-    stage('Test') {
+
+    stage('Build Containers') {
       steps {
-        sh '''
-        docker compose up -d --build
-        docker compose exec -T app php artisan test || true
-        '''
+        sh 'docker compose up -d --build'
       }
+    }
+
+    stage('Run Tests') {
+      steps {
+        sh 'docker compose exec -T app php artisan test'
+      }
+    }
+
+  }
+
+  post {
+    always {
+      sh 'docker compose down'
     }
   }
 }
