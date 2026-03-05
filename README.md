@@ -1,4 +1,3 @@
-
 Laravel DevOps CRUD Practice Project
 ==================================
 
