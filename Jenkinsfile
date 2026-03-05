@@ -5,13 +5,13 @@ pipeline {
 
         stage('Build Containers') {
             steps {
-                sh 'docker compose up -d --build'
+                sh 'docker-compose up -d --build'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'docker compose exec -T app php artisan test'
+                sh 'docker-compose exec -T app php artisan test'
             }
         }
 
@@ -19,7 +19,7 @@ pipeline {
 
     post {
         always {
-            sh 'docker compose down'
+            sh 'docker-compose down'
         }
     }
 }
