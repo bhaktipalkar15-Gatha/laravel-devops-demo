@@ -1,4 +1,5 @@
-Test1 Laravel DevOps CRUD Practice Project
+
+Test Laravel DevOps CRUD Practice Project
 ==================================
 
 This is a **DevOps practice-ready Laravel project scaffold** with:
